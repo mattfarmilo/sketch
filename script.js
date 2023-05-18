@@ -27,7 +27,11 @@ function createDivs (num) {
         e.target.style.backgroundColor = `rgb(${randNum()}, ${randNum()}, ${randNum()})`;
       }
       if (mode === 'shade') {
-        console.log(e.target.style.backgroundColor);
+        const color = e.target.style.backgroundColor;
+        const commaIndex = color.indexOf(',');
+        const colorValue = Number(color.slice(4, commaIndex)) - 25.5;
+
+        e.target.style.backgroundColor = `rgb(${colorValue}, ${colorValue}, ${colorValue})`;
       }
     });
   });
